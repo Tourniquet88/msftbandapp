@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MSFTBandLib;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MSFTBandApp {
@@ -8,14 +9,21 @@ namespace MSFTBandApp {
 /// <summary>MSFTBandApp</summary>
 public partial class App : Application {
 
-	/// <summary>App constructor.</summary>
-	public App() {
+	/// <summary>Band client</summary>
+	BandClient BandClient;
 
+
+	/// <summary>App constructor.</summary>
+	public App(BandClient BandClient) {
+
+		// Band client
+		this.BandClient = BandClient;
+		
 		// Initialise
 		this.InitializeComponent();
 
 		// Construct main page
-		this.MainPage = new MainPage();
+		this.MainPage = new MainPage(this.BandClient);
 
 	}
 

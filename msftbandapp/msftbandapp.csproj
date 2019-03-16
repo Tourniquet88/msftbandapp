@@ -31,4 +31,10 @@
   <ItemGroup>
     <Folder Include="src\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MSFTBandLib">
+      <HintPath>..\..\msftbandlib\msftbandlib\bin\Debug\netstandard1.4\MSFTBandLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
