@@ -143,7 +143,12 @@
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.8" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\msftbandapp\msftbandapp.csproj">
+      <Project>{66cf4116-1b7e-4bd4-8051-dcd3b311fdc0}</Project>
+      <Name>msftbandapp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="src\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
