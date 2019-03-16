@@ -29,7 +29,7 @@ global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity {
 		ToolbarResource = Resource.Layout.Toolbar;
 		base.OnCreate(savedInstanceState);
 		global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-		LoadApplication(new MSFTBandApp.App());
+		this.LoadApplication(new MSFTBandApp.App());
 	}
 
 }
