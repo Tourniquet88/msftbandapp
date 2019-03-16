@@ -11,9 +11,10 @@ public class PageLoadException : Exception {
 
 	/// <summary>Construct exception.</summary>
 	/// <param name="page">Page name</param>
-	public PageLoadException(string page) {
+	public PageLoadException(
+		string page) : base("Failed load \"" + page + "\".") {
+		
 		this.page = page;
-		base("Failed load \"" + this.page + "\"");
 	}
 
 }
