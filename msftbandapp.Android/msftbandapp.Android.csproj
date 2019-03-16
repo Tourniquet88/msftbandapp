@@ -94,11 +94,5 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="src\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\msftbandapp\msftbandapp.csproj">
-      <Project>{c68ab836-e491-431a-93c0-63ba252026f2}</Project>
-      <Name>msftbandapp</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

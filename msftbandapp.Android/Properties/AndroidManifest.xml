@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:versionCode="1"
+	package="com.ilmiont.msftbandapp"
+	android:installLocation="auto"
+	android:versionName="0.1.0">
+
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application 
+		android:label="MSFTBandApp"
+		android:icon="@mipmap/icon">
+	</application>
+</manifest>
