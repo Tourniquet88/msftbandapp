@@ -10,7 +10,7 @@ namespace MSFTBandApp.Android {
 
 [
 	Activity(
-		Label = "MSFTBandApp.Android",
+		Label = "MSFTBandApp",
 		Icon = "@mipmap/icon",
 		Theme = "@style/MainTheme",
 		MainLauncher = true,
