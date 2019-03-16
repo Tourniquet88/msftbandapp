@@ -1,0 +1,20 @@
+{
+    "ipm": "1.2.0",
+    "path": "/mnt/h/msftbandapp/.ipm",
+    "name": "msftbandapp",
+    "title": "MSFTBandApp",
+    "author": "James Walker",
+    "version": "0.1.0",
+    "dir": "/mnt/h/msftbandapp",
+    "license": "MIT",
+    "copyright": "James Walker 2019",
+    "oss": true,
+    "contributions": true,
+    "branches": {
+        "master": "master",
+        "development": "development"
+    },
+    "vfiles": [],
+    "submodules": [],
+    "scripts": {}
+}
