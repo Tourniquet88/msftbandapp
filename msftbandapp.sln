@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msftbandapp.UWP", "msftbandapp\msftbandapp.UWP\msftbandapp.UWP.csproj", "{43F54ADB-91B6-4EBF-964B-E8BC3DBF267F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msftbandapp", "msftbandapp\msftbandapp\msftbandapp.csproj", "{C68AB836-E491-431A-93C0-63BA252026F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "msftbandapp", "msftbandapp\msftbandapp\msftbandapp.csproj", "{C68AB836-E491-431A-93C0-63BA252026F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "msftbandapp.Android", "msftbandapp\msftbandapp.Android\msftbandapp.Android.csproj", "{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,30 @@ Global
 		{C68AB836-E491-431A-93C0-63BA252026F2}.Release|x86.ActiveCfg = Release|Any CPU
 		{C68AB836-E491-431A-93C0-63BA252026F2}.Release|x86.Build.0 = Release|Any CPU
 		{C68AB836-E491-431A-93C0-63BA252026F2}.Release|x86.Deploy.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|x64.Build.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|ARM.Build.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|ARM.Deploy.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|x64.ActiveCfg = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|x64.Build.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|x64.Deploy.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|x86.Build.0 = Release|Any CPU
+		{BA91B040-97CC-4EC3-B5B1-2C2A372DEA82}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
