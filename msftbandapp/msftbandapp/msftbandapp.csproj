@@ -15,6 +15,7 @@
     <PackageTags>msftband</PackageTags>
     <PackageReleaseNotes>MSFTBandApp initial release.</PackageReleaseNotes>
     <AssemblyVersion>0.1.*</AssemblyVersion>
+    <Deterministic>False</Deterministic>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -23,6 +24,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
   </ItemGroup>
 </Project>
