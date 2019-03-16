@@ -92,7 +92,6 @@
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
     <Folder Include="Resources\drawable\" />
-    <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\msftbandapp\msftbandapp.csproj">
