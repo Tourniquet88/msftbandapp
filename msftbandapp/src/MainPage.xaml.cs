@@ -29,6 +29,8 @@ public partial class MainPage : ContentPage {
 		List<Band> devices = await this.BandClient.GetPairedBands();
 		Band device = devices[0];
 		await this.DisplayAlert(device.GetName(), device.GetAddress(), "OK");
+		BandInterface BC = await this.BandClient.GetConnection(device);
+		await BC.Disconnect();
 	}
 
 }
