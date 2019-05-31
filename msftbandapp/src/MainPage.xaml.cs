@@ -14,6 +14,7 @@ public partial class MainPage : ContentPage {
 
 
 	/// <summary>Construct the page.</summary>
+	/// <param name="BandClient">BandClient</param>
 	public MainPage(BandClient BandClient) {
 
 		// Band client
@@ -25,11 +26,16 @@ public partial class MainPage : ContentPage {
 	}
 
 
+	/// <summary>Button clicked.</summary>
+	/// <param name="sender">sender</param>
+	/// <param name="e">e</param>
 	private async void Button_Clicked(object sender, EventArgs e) {
 		List<Band> devices = await this.BandClient.GetPairedBands();
 		Band device = devices[0];
-		await this.DisplayAlert(device.GetName(), device.GetAddress(), "OK");
 		BandInterface BC = await this.BandClient.GetConnection(device);
+		string name = device.GetName();
+		string address = device.GetAddress();
+		await this.DisplayAlert(name, address, "OK");
 		await BC.Disconnect();
 	}
 
