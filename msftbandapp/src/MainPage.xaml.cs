@@ -36,6 +36,10 @@ public partial class MainPage : ContentPage {
 		string name = device.GetName();
 		string address = device.GetAddress();
 		await this.DisplayAlert(name, address, "OK");
+		System.Diagnostics.Debug.WriteLine("Reading device time...");
+		byte[] res = await BC.Read(MSFTBandLib.Command.GetDeviceTime, 16);
+		System.Diagnostics.Debug.WriteLine("Got time!");
+		System.Diagnostics.Debug.WriteLine("[" + string.Join(", ", res) + "]");
 		await BC.Disconnect();
 	}
 
