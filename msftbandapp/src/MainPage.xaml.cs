@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MSFTBandLib;
+using MSFTBandLib.Device;
+using MSFTBandLib.Time;
 
 namespace MSFTBandApp {
 
@@ -30,17 +32,28 @@ public partial class MainPage : ContentPage {
 	/// <param name="sender">sender</param>
 	/// <param name="e">e</param>
 	private async void Button_Clicked(object sender, EventArgs e) {
-		List<Band> devices = await this.BandClient.GetPairedBands();
-		Band device = devices[0];
-		BandInterface BC = await this.BandClient.GetConnection(device);
+		Band device = (await this.BandClient.GetPairedBands())[0];
+		BandInterface client = await this.BandClient.GetConnection(device);
+		DeviceService DeviceService = new DeviceService(client);
+		TimeService TimeService = new TimeService(client);
+
+		// Device
 		string name = device.GetName();
 		string address = device.GetAddress();
-		await this.DisplayAlert(name, address, "OK");
+		System.Diagnostics.Debug.WriteLine($"Connected {name} {address}.");
+
+		// Time
 		System.Diagnostics.Debug.WriteLine("Reading device time...");
-		byte[] res = await BC.Read(MSFTBandLib.Command.GetDeviceTime, 16);
-		System.Diagnostics.Debug.WriteLine("Got time!");
-		System.Diagnostics.Debug.WriteLine("[" + string.Join(", ", res) + "]");
-		await BC.Disconnect();
+		TimeDomain Time = await TimeService.GetDeviceTime();
+		System.Diagnostics.Debug.WriteLine($"Device time: {Time}");
+
+		// Serial
+		System.Diagnostics.Debug.WriteLine("Getting serial number...");
+		string serial = await DeviceService.GetSerialNumber();
+		System.Diagnostics.Debug.WriteLine($"Serial number: {serial}");
+
+		// Disconnect
+		await client.Disconnect();
 	}
 
 }
