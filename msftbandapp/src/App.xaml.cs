@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MSFTBandLib;
+using MSFTBandApp.MainPage;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MSFTBandApp {
@@ -29,7 +30,7 @@ public partial class App : Application {
 		this.InitializeComponent();
 
 		// Construct main page
-		this.MainPage = new MainPage(this.BandClient);
+		this.MainPage = new MainPage.MainPage(this.BandClient);
 
 	}
 

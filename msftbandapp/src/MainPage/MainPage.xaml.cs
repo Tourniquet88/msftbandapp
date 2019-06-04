@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MSFTBandLib;
 using MSFTBandLib.Device;
 using MSFTBandLib.Time;
+using MSFTBandApp.Common;
 
-namespace MSFTBandApp {
+namespace MSFTBandApp.MainPage {
 
 /// <summary>Main page component.</summary>
-public partial class MainPage : ContentPage {
+public partial class MainPage : ContentPage, INotifyPropertyChanged {
+
+	/// <summary>Connected Band</summary>
+	protected Band Band;
 
 	/// <summary>Band client</summary>
-	BandClient BandClient;
+	protected BandClient BandClient;
+
+	protected MainPageViewModel ViewModel;
 
 
 	/// <summary>Construct the page.</summary>
@@ -28,8 +35,11 @@ public partial class MainPage : ContentPage {
 		// Band client
 		this.BandClient = BandClient;
 
+		this.ViewModel = new MainPageViewModel(this);
+
 		// Initialise
 		this.InitializeComponent();
+		this.BindingContext = this.ViewModel;
 
 	}
 
@@ -38,14 +48,14 @@ public partial class MainPage : ContentPage {
 	/// <param name="sender">sender</param>
 	/// <param name="e">e</param>
 	private async void Button_Clicked(object sender, EventArgs e) {
-		Band device = (await this.BandClient.GetPairedBands())[0];
-		BandInterface client = await this.BandClient.GetConnection(device);
+		this.Band = (await this.BandClient.GetPairedBands())[0];
+		BandInterface client = await this.BandClient.GetConnection(this.Band);
 		DeviceService DeviceService = new DeviceService(client);
 		TimeService TimeService = new TimeService(client);
 
 		// Device
-		string name = device.GetName();
-		string address = device.GetAddress();
+		string name = this.Band.GetName();
+		string address = this.Band.GetAddress();
 		System.Diagnostics.Debug.WriteLine($"Connected {name} {address}.");
 
 		// Time
@@ -56,7 +66,8 @@ public partial class MainPage : ContentPage {
 		// Serial
 		System.Diagnostics.Debug.WriteLine("Getting serial number...");
 		string serial = await DeviceService.GetSerialNumber();
-		System.Diagnostics.Debug.WriteLine($"Serial number: {serial}");
+		this.ViewModel.BandSerialNumber = serial;
+		System.Diagnostics.Debug.WriteLine($"Serial number: {this.ViewModel.BandSerialNumber}");
 
 		// Disconnect
 		await client.Disconnect();
