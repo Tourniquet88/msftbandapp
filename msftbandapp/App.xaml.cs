@@ -14,6 +14,12 @@ public partial class App : Application {
 
 
 	/// <summary>App constructor.</summary>
+	public App() {
+		this.InitializeComponent();
+	}
+
+
+	/// <summary>App constructor with a Band client.</summary>
 	public App(BandClient BandClient) {
 
 		// Band client

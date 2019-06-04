@@ -16,6 +16,12 @@ public partial class MainPage : ContentPage {
 
 
 	/// <summary>Construct the page.</summary>
+	public MainPage() {
+		this.InitializeComponent();
+	}
+
+
+	/// <summary>Construct the page with a Band client.</summary>
 	/// <param name="BandClient">BandClient</param>
 	public MainPage(BandClient BandClient) {
 
