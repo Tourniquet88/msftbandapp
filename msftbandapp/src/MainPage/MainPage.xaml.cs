@@ -19,6 +19,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged {
 	/// <summary>Band client</summary>
 	protected BandClient BandClient;
 
+	/// <summary>View model instance</summary>
 	protected MainPageViewModel ViewModel;
 
 
@@ -35,42 +36,36 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged {
 		// Band client
 		this.BandClient = BandClient;
 
+		/// View model instance
 		this.ViewModel = new MainPageViewModel(this);
 
-		// Initialise
+		// Initialise the component
 		this.InitializeComponent();
 		this.BindingContext = this.ViewModel;
+
+		// Run!
+		this.Todo();
 
 	}
 
 
-	/// <summary>Button clicked.</summary>
-	/// <param name="sender">sender</param>
-	/// <param name="e">e</param>
-	private async void Button_Clicked(object sender, EventArgs e) {
+	/// <summary>Todo demo ;)</summary>
+	private async void Todo() {
+
+		// Connect
 		this.Band = (await this.BandClient.GetPairedBands())[0];
 		BandInterface client = await this.BandClient.GetConnection(this.Band);
+
+		// Services
 		DeviceService DeviceService = new DeviceService(client);
-		TimeService TimeService = new TimeService(client);
 
-		// Device
-		string name = this.Band.GetName();
-		string address = this.Band.GetAddress();
-		System.Diagnostics.Debug.WriteLine($"Connected {name} {address}.");
-
-		// Time
-		System.Diagnostics.Debug.WriteLine("Reading device time...");
-		TimeDomain Time = await TimeService.GetDeviceTime();
-		System.Diagnostics.Debug.WriteLine($"Device time: {Time}");
-
-		// Serial
-		System.Diagnostics.Debug.WriteLine("Getting serial number...");
-		string serial = await DeviceService.GetSerialNumber();
-		this.ViewModel.BandSerialNumber = serial;
-		System.Diagnostics.Debug.WriteLine($"Serial number: {this.ViewModel.BandSerialNumber}");
+		// Get data
+		this.ViewModel.Band = this.Band;
+		this.ViewModel.BandSerialNumber = await DeviceService.GetSerialNumber();
 
 		// Disconnect
 		await client.Disconnect();
+
 	}
 
 }
