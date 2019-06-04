@@ -1,17 +1,34 @@
+using MSFTBandLib;
 using MSFTBandApp.Common;
 
 namespace MSFTBandApp.MainPage {
 
+/// <summary>Main page view model</summary>
 public class MainPageViewModel : ViewModel {
-	
-	public string BandSerialNumber {
-		get => PropertyAccess<string>();
-		set => PropertyChange(value);
+
+	/// <summary>Construct the view model.</summary>
+	/// <param name="View">Main page view instance</param>
+	public MainPageViewModel(MainPage View) : base(View) {}
+
+
+	public Band Band {
+		get => this.PropertyAccess<Band>();
+		set => this.PropertyChange(value);
 	}
 
-	public string _BandSerialNumber = "FOOBAR";
+	
+	/// <summary>Band serial number</summary>	
+	public string BandSerialNumber {
+		get => this.PropertyAccess<string>();
+		set => this.PropertyChange(value);
+	}
 
-	public MainPageViewModel(MainPage host) : base(host) {}
+
+	public Band _Band;
+
+
+	/// <summary>Band serial number field</summary>
+	public string _BandSerialNumber;
 
 }
 
