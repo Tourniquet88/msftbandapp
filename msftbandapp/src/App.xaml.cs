@@ -30,21 +30,17 @@ public partial class App : Application {
 	public App(BandClient BandClient) {
 		this.InitializeComponent();
 		this.Main(BandClient);
+		this.MainPage = new LaunchPage.LaunchPage();
 	}
 
 
 	/// <summary>Connect to Band and render main page.</summary>
 	/// <param name="BandClient">Band client instance</param>
 	public async void Main(BandClient BandClient) {
-
-		// Get Band connection
 		this.BandClient = BandClient;
 		this.Band = (await this.BandClient.GetPairedBands())[0];
 		this.BandInterface = await this.BandClient.GetConnection(this.Band);
-
-		/// Navigate to the main page.
 		this.MainPage = new MainPage.MainPage();
-
 	}
 
 
