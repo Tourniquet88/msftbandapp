@@ -9,9 +9,15 @@ namespace MSFTBandApp {
 
 /// <summary>MSFTBandApp</summary>
 public partial class App : Application {
+	
+	/// <summary>Band</summary>
+	public Band Band;
 
 	/// <summary>Band client</summary>
-	BandClient BandClient;
+	public BandClient BandClient;
+
+	/// <summary>Band interface instance</summary>
+	public BandInterface BandInterface;
 
 
 	/// <summary>App constructor.</summary>
@@ -22,15 +28,22 @@ public partial class App : Application {
 
 	/// <summary>App constructor with a Band client.</summary>
 	public App(BandClient BandClient) {
-
-		// Band client
-		this.BandClient = BandClient;
-		
-		// Initialise
 		this.InitializeComponent();
+		this.Main(BandClient);
+	}
 
-		// Construct main page
-		this.MainPage = new MainPage.MainPage(this.BandClient);
+
+	/// <summary>Connect to Band and render main page.</summary>
+	/// <param name="BandClient">Band client instance</param>
+	public async void Main(BandClient BandClient) {
+
+		// Get Band connection
+		this.BandClient = BandClient;
+		this.Band = (await this.BandClient.GetPairedBands())[0];
+		this.BandInterface = await this.BandClient.GetConnection(this.Band);
+
+		/// Navigate to the main page.
+		this.MainPage = new MainPage.MainPage();
 
 	}
 
@@ -44,6 +57,7 @@ public partial class App : Application {
 	/// <summary>App is suspending.</summary>
 	protected override void OnSleep() {
 		// TODO
+		// await this.BandClient.Disconnect();
 	}
 
 
