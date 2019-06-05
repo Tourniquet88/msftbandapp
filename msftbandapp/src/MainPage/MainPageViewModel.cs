@@ -11,6 +11,7 @@ public class MainPageViewModel : ViewModel {
 	public MainPageViewModel(MainPage View) : base(View) {}
 
 
+	/// <summary>Band instance</summary>
 	public Band Band {
 		get => this.PropertyAccess<Band>();
 		set => this.PropertyChange(value);
@@ -24,6 +25,7 @@ public class MainPageViewModel : ViewModel {
 	}
 
 
+	/// <summary>Band instance field</summary>
 	public Band _Band;
 
 

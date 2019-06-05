@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MSFTBandLib;
-using MSFTBandApp.MainPage;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MSFTBandApp {
@@ -19,6 +18,9 @@ public partial class App : Application {
 	/// <summary>Band interface instance</summary>
 	public BandInterface BandInterface;
 
+	/// <summary>Launch page instance</summary>
+	public LaunchPage.LaunchPage LaunchPage;
+
 
 	/// <summary>App constructor.</summary>
 	public App() {
@@ -28,19 +30,32 @@ public partial class App : Application {
 
 	/// <summary>App constructor with a Band client.</summary>
 	public App(BandClient BandClient) {
+
+		/// Xamarin
 		this.InitializeComponent();
-		this.Main(BandClient);
-		this.MainPage = new LaunchPage.LaunchPage();
+
+		/// Render launch page
+		this.LaunchPage = new LaunchPage.LaunchPage();
+		this.MainPage = this.LaunchPage;
+
+		/// Launch app
+		this.Launch(BandClient);
+
 	}
 
 
 	/// <summary>Connect to Band and render main page.</summary>
 	/// <param name="BandClient">Band client instance</param>
-	public async void Main(BandClient BandClient) {
-		this.BandClient = BandClient;
-		this.Band = (await this.BandClient.GetPairedBands())[0];
-		this.BandInterface = await this.BandClient.GetConnection(this.Band);
-		this.MainPage = new MainPage.MainPage();
+	protected async void Launch(BandClient BandClient) {
+		try {
+			this.BandClient = BandClient;
+			this.Band = (await this.BandClient.GetPairedBands())[0];
+			this.BandInterface = await this.BandClient.GetConnection(this.Band);
+			this.MainPage = new MainPage.MainPage();
+		}
+		catch (Exception) {
+			this.LaunchPage.DisplayError();
+		}
 	}
 
 

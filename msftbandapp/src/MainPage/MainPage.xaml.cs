@@ -19,22 +19,15 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged {
 
 	/// <summary>Construct the page.</summary>
 	public MainPage() {
-
-		/// View model instance
 		this.ViewModel = new MainPageViewModel(this);
-
-		// Initialise the component
-		this.InitializeComponent();
 		this.BindingContext = this.ViewModel;
-
-		// Run!
-		this.Todo();
-
+		this.InitializeComponent();
+		this.Render();
 	}
 
 
-	/// <summary>Todo demo ;)</summary>
-	private async void Todo() {
+	/// <summary>Render!<summary>
+	private async void Render() {
 
 		// Services
 		DeviceService DeviceService = new DeviceService(((App)App.Current).BandInterface);
