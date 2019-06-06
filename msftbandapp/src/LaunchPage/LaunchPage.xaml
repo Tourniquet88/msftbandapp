@@ -5,7 +5,7 @@
 
 	<StackLayout>
 		<ActivityIndicator IsRunning="True" VerticalOptions="CenterAndExpand" IsVisible="{Binding Loading}" />
-		<Label x:Name="AppInitError" Text="MSFTBandApp couldn't initialise – have you paired your Band?" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" IsVisible="{Binding Error}" />
+		<Label x:Name="AppInitError" Text="MSFTBandApp couldn't initialise – is your Band connected?" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" IsVisible="{Binding Error}" />
 	</StackLayout>
 
 </ContentPage>
