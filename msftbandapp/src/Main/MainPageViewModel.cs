@@ -1,5 +1,6 @@
 using MSFTBandLib;
 using MSFTBandApp.Common;
+using MSFTBandLib.Metrics;
 using System;
 
 namespace MSFTBandApp.Main {
@@ -42,6 +43,18 @@ public class MainPageViewModel : ViewModel {
 	}
 
 
+	/// <summary>Last sleep</summary>
+	public Sleep LastSleep {
+		get {
+			if (this._LastSleep == null) {
+				return new Sleep();
+			}
+			else return this.PropertyAccess<Sleep>();
+		}
+		set => this.PropertyChange(value);
+	}
+
+
 	/// <summary>Band instance field</summary>
 	public BandInterface _Band;
 
@@ -50,6 +63,9 @@ public class MainPageViewModel : ViewModel {
 
 	/// <summary>Band serial number field</summary>
 	public string _BandSerialNumber;
+
+	/// <summary>Last sleep field</summary>
+	public Sleep _LastSleep;
 
 }
 

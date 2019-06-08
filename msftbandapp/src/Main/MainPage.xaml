@@ -14,6 +14,18 @@
 			<Label Text="{Binding Band.Mac}" Grid.Column="2" Grid.Row="3" />
 			<Label Text="Band time" Grid.Column="1" Grid.Row="4" />
 			<Label Text="{Binding BandTimeString}" Grid.Column="2" Grid.Row="4" />
+			<Label Text="Last sleep – duration (s)" Grid.Column="1" Grid.Row="5" />
+			<Label Text="{Binding LastSleep.Duration}" Grid.Column="2" Grid.Row="5" />
+			<Label Text="Last sleep – time asleep (s)" Grid.Column="1" Grid.Row="6" />
+			<Label Text="{Binding LastSleep.TimeAsleep}" Grid.Column="2" Grid.Row="6" />
+			<Label Text="Last sleep – time awake (s)" Grid.Column="1" Grid.Row="7" />
+			<Label Text="{Binding LastSleep.TimeAwake}" Grid.Column="2" Grid.Row="7" />
+			<Label Text="Last sleep – time to fall asleep (s)" Grid.Column="1" Grid.Row="8" />
+			<Label Text="{Binding LastSleep.TimeToSleep}" Grid.Column="2" Grid.Row="8" />
+			<Label Text="Last sleep – times awoke" Grid.Column="1" Grid.Row="9" />
+			<Label Text="{Binding LastSleep.TimesAwoke}" Grid.Column="2" Grid.Row="9" />
+			<Label Text="Last sleep – resting heart rate" Grid.Column="1" Grid.Row="10" />
+			<Label Text="{Binding LastSleep.RestingHR}" Grid.Column="2" Grid.Row="10" />
 		</Grid>
 	</StackLayout>
 

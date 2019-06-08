@@ -34,8 +34,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged {
 		this.ViewModel.Band = this.Band;
 		this.ViewModel.BandTime = await this.Band.GetDeviceTime();
 		this.ViewModel.BandSerialNumber = await this.Band.GetSerialNumber();
-		var sleep = await this.Band.GetLastSleep();
-		System.Diagnostics.Debug.WriteLine(sleep);
+		this.ViewModel.LastSleep = await this.Band.GetLastSleep();
 	}
 
 }
