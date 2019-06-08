@@ -1,5 +1,4 @@
 using MSFTBandLib;
-using MSFTBandLib.Includes;
 using MSFTBandApp.Common;
 using System;
 
@@ -20,8 +19,8 @@ public class MainPageViewModel : ViewModel {
 	}
 
 	/// <summary>Band time</summary>
-	public MSFTBandLib.Includes.DateTime BandTime {
-		get => this.PropertyAccess<MSFTBandLib.Includes.DateTime>();
+	public DateTime BandTime {
+		get => this.PropertyAccess<DateTime>();
 		set {
 			this.PropertyChange(value);
 			this.OnPropertyChanged("BandTimeString");
@@ -47,7 +46,7 @@ public class MainPageViewModel : ViewModel {
 	public BandInterface _Band;
 
 	/// <summary>Band time field</summary>
-	public MSFTBandLib.Includes.DateTime _BandTime;
+	public DateTime _BandTime;
 
 	/// <summary>Band serial number field</summary>
 	public string _BandSerialNumber;
