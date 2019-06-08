@@ -1,6 +1,6 @@
 using MSFTBandApp.Common;
 
-namespace MSFTBandApp.LaunchPage {
+namespace MSFTBandApp.Launch {
 
 /// <summary>Launch page view model</summary>
 public class LaunchPageViewModel : ViewModel {

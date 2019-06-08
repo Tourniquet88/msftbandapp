@@ -11,13 +11,13 @@ namespace MSFTBandApp.Common {
 /// A basic MVVM implementation.
 /// 
 /// Extend and add properties using getter/setter pattern to 
-/// 	to invoke `PropertyAccess`/`PropertyChange` respectively, 
-/// 	which handle accessing property data in a corresponding private 
-/// 	field (which must be named as the property name with a `_` prefix) 
-/// 	and invoking `OnPropertyChanged` to update XAML bindings.
+/// invoke `PropertyAccess`/`PropertyChange` respectively, which 
+/// handle accessing property data in a corresponding private 
+/// field (which must be named as the property name with a `_` 
+/// prefix) and invoking `OnPropertyChanged` to update XAML bindings.
 /// 
-/// You can also use `OnPropertyChanged` manually to update a property 
-/// 	in the view (`View`, which is passed at construction). 
+/// You can also use `OnPropertyChanged` manually to update a 
+/// property in the view (`View`, which is passed at construction). 
 /// </summary>
 public class ViewModel : INotifyPropertyChanged {
 

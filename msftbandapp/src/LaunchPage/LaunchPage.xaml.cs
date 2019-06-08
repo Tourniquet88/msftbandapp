@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MSFTBandApp.LaunchPage {
+namespace MSFTBandApp.Launch {
 
 /// <summary>Launch page</summary>
 public partial class LaunchPage : ContentPage {

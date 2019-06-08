@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:local="clr-namespace:MSFTBandApp"
-			 x:Class="MSFTBandApp.MainPage.MainPage">
+			 x:Class="MSFTBandApp.Main.MainPage">
 
 	<StackLayout>
 		<Grid>
@@ -11,7 +11,9 @@
 			<Label Text="Device serial number" Grid.Column="1" Grid.Row="2" />
 			<Label Text="{Binding BandSerialNumber}" Grid.Column="2" Grid.Row="2" />
 			<Label Text="MAC address" Grid.Column="1" Grid.Row="3" />
-			<Label Text="{Binding Band.Address}" Grid.Column="2" Grid.Row="3" />
+			<Label Text="{Binding Band.Mac}" Grid.Column="2" Grid.Row="3" />
+			<Label Text="Band time" Grid.Column="1" Grid.Row="4" />
+			<Label Text="{Binding BandTimeString}" Grid.Column="2" Grid.Row="4" />
 		</Grid>
 	</StackLayout>
 

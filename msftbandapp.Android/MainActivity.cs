@@ -8,17 +8,15 @@ using Android.OS;
 
 namespace MSFTBandApp.Android {
 
-[
-	Activity(
-		Label = "MSFTBandApp",
-		Icon = "@mipmap/icon",
-		Theme = "@style/MainTheme",
-		MainLauncher = true,
-		ConfigurationChanges = (
-			ConfigChanges.ScreenSize | ConfigChanges.Orientation
-		)
+[Activity(
+	Label = "MSFTBandApp",
+	Icon = "@mipmap/icon",
+	Theme = "@style/MainTheme",
+	MainLauncher = true,
+	ConfigurationChanges = (
+		ConfigChanges.ScreenSize | ConfigChanges.Orientation
 	)
-]
+)]
 /// <summary>Main activity entrypoint.</summary>
 public class MainActivity : 
 global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity {

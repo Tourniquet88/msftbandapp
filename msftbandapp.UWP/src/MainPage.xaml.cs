@@ -18,8 +18,7 @@ public sealed partial class MainPage {
 	/// <summary>Construct the page.</summary>
 	public MainPage() {
 		this.InitializeComponent();
-		BandClient BandClient = new MSFTBandLibUWP();
-		this.LoadApplication(new MSFTBandApp.App(BandClient));
+		this.LoadApplication(new MSFTBandApp.App(new BandClientUWP()));
 	}
 
 }

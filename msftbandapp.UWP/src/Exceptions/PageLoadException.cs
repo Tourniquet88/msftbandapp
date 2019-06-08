@@ -6,15 +6,14 @@ namespace MSFTBandApp.UWP.Exceptions {
 public class PageLoadException : Exception {
 
 	/// <summary>Page name</summary>
-	public string page;
+	public string Page;
 
 
 	/// <summary>Construct exception.</summary>
 	/// <param name="page">Page name</param>
-	public PageLoadException(
-		string page) : base("Failed load \"" + page + "\".") {
-		
-		this.page = page;
+	public PageLoadException(string page) : 
+	base("Failed to load \"" + page + "\".") {
+		this.Page = page;
 	}
 
 }

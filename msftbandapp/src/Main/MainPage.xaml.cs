@@ -4,21 +4,24 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MSFTBandLib;
-using MSFTBandLib.Device;
-using MSFTBandLib.Time;
 using MSFTBandApp.Common;
 
-namespace MSFTBandApp.MainPage {
+namespace MSFTBandApp.Main {
 
 /// <summary>Main page component.</summary>
 public partial class MainPage : ContentPage, INotifyPropertyChanged {
+
+	/// <summary>Band</summary>
+	protected BandInterface Band;
 
 	/// <summary>View model instance</summary>
 	protected MainPageViewModel ViewModel;
 
 
 	/// <summary>Construct the page.</summary>
-	public MainPage() {
+	/// <param name="Band">Band instance</param>
+	public MainPage(BandInterface Band) {
+		this.Band = Band;
 		this.ViewModel = new MainPageViewModel(this);
 		this.BindingContext = this.ViewModel;
 		this.InitializeComponent();
@@ -28,14 +31,9 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged {
 
 	/// <summary>Render!<summary>
 	private async void Render() {
-
-		// Services
-		DeviceService DeviceService = new DeviceService(((App)App.Current).BandInterface);
-
-		// Get data
-		this.ViewModel.Band = ((App)App.Current).Band;
-		this.ViewModel.BandSerialNumber = await DeviceService.GetSerialNumber();
-
+		this.ViewModel.Band = this.Band;
+		this.ViewModel.BandTime = await this.Band.GetDeviceTime();
+		this.ViewModel.BandSerialNumber = await this.Band.GetSerialNumber();
 	}
 
 }

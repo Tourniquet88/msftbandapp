@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MSFTBandLib;
+using MSFTBandApp.Launch;
+using MSFTBandApp.Main;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MSFTBandApp {
@@ -10,16 +12,13 @@ namespace MSFTBandApp {
 public partial class App : Application {
 	
 	/// <summary>Band</summary>
-	public Band Band;
+	public BandInterface Band;
 
 	/// <summary>Band client</summary>
-	public BandClient BandClient;
-
-	/// <summary>Band interface instance</summary>
-	public BandInterface BandInterface;
+	public BandClientInterface BandClient;
 
 	/// <summary>Launch page instance</summary>
-	public LaunchPage.LaunchPage LaunchPage;
+	public LaunchPage LaunchPage;
 
 
 	/// <summary>App constructor.</summary>
@@ -28,14 +27,15 @@ public partial class App : Application {
 	}
 
 
-	/// <summary>App constructor with a Band client.</summary>
-	public App(BandClient BandClient) {
+	/// <summary>App constructor with MSFTBand.</summary>
+	/// <param name="BandClient">Band client instance</param>
+	public App(BandClientInterface BandClient) {
 
 		/// Xamarin
 		this.InitializeComponent();
 
 		/// Render launch page
-		this.LaunchPage = new LaunchPage.LaunchPage();
+		this.LaunchPage = new LaunchPage();
 		this.MainPage = this.LaunchPage;
 
 		/// Launch app
@@ -44,14 +44,18 @@ public partial class App : Application {
 	}
 
 
-	/// <summary>Connect to Band and render main page.</summary>
+	/// <summary>Get Band connection and render main page.</summary>
 	/// <param name="BandClient">Band client instance</param>
-	protected async void Launch(BandClient BandClient) {
+	protected async void Launch(BandClientInterface BandClient) {
 		try {
+
+			// Connect to Band
 			this.BandClient = BandClient;
 			this.Band = (await this.BandClient.GetPairedBands())[0];
-			this.BandInterface = await this.BandClient.GetConnection(this.Band);
-			this.MainPage = new MainPage.MainPage();
+			await this.Band.Connect();
+
+			// Render main page!
+			this.MainPage = new MainPage(this.Band);
 		}
 		catch (Exception) {
 			this.LaunchPage.DisplayError();
@@ -68,7 +72,7 @@ public partial class App : Application {
 	/// <summary>App is suspending.</summary>
 	protected override void OnSleep() {
 		// TODO
-		// await this.BandClient.Disconnect();
+		// await this.Band.Disconnect();
 	}
 
 

@@ -20,7 +20,7 @@ sealed partial class App : Application {
     /// Construct new app instance.
     /// 
     /// This constructor is the first line of executed user code 
-    ///     and as such represents the entrypoint to the application.
+    /// and as such represents the entrypoint to the application.
     /// </summary>
     public App() {
         this.InitializeComponent();
